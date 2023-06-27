@@ -68,7 +68,7 @@ class Language:
         self.english_language = "English"
         self.spanish_language = "Spanish"
         self.chinese_language = "Chinese (traditional)"
-        self.portugal_language = "Serbian"
+        self.portugal_language = "Indonesian"
         self.germany_language = "German"
 
     def get_all_language_names(self) -> list:
