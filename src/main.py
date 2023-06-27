@@ -112,7 +112,7 @@ if choose is False:
     if longest_text is True:
         print(
             f"Longest translented text: {min(tranleted_list)}, letters: {len(min(tranleted_list))},"
-             f"Shortest translented text: {max(tranleted_list)}, letters: {len(max(tranleted_list))}"
+             f" Shortest translented text: {max(tranleted_list)}, letters: {len(max(tranleted_list))}"
         )
 
 else:
