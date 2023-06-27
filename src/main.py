@@ -5,6 +5,7 @@
 # Please find, which translation have the shortest/longest variation.Write some unittests for non translation functionality.
 #  Test should be executed before the main program.
 from deep_translator import GoogleTranslator
+from typing import Optional
 
 
 def enter_text_to_translation() -> str:
@@ -16,7 +17,7 @@ def enter_text_to_translation() -> str:
         return text
 
 
-def choose_language(count: int):
+def choose_language(count: int) -> Optional[int]:
     while True:
         choice_list = []
         for x in range(1, count + 1):
@@ -34,7 +35,7 @@ def choose_language(count: int):
         return choice
 
 
-def option():
+def option() -> bool:
     while True:
         text = str(input("Do you wanna know how letters have translated text? (y/n): "))
         if text.lower() not in ["y", "n"]:
@@ -46,7 +47,7 @@ def option():
             return False
 
 
-def option_shortes_longest():
+def option_shortes_longest() -> bool:
     while True:
         text = str(
             input(
@@ -85,7 +86,7 @@ class CLI(Language):
         self.languages = languages
         self.text = text
 
-    def translate_text(self):
+    def translate_text(self) -> str:
         translated = GoogleTranslator(
             source="auto", target=self.languages.lower()
         ).translate(self.text)
@@ -112,7 +113,7 @@ if choose is False:
     if longest_text is True:
         print(
             f"Longest translented text: {min(tranleted_list)}, letters: {len(min(tranleted_list))},"
-             f" Shortest translented text: {max(tranleted_list)}, letters: {len(max(tranleted_list))}"
+            f" Shortest translented text: {max(tranleted_list)}, letters: {len(max(tranleted_list))}"
         )
 
 else:
