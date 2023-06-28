@@ -92,6 +92,7 @@ class CLI(Language):
         ).translate(self.text)
         return translated
 
+
 if __name__ == "__main__":
     text = enter_text_to_translation()
     language = Language()
