@@ -92,34 +92,34 @@ class CLI(Language):
         ).translate(self.text)
         return translated
 
+if __name__ == "__main__":
+    text = enter_text_to_translation()
+    language = Language()
+    language_names = language.get_all_language_names()
+    count = 1
+    for x in language_names:
+        print(f"{count}. {x}")
+        count += 1
+    print(f"{count}. Translate from all languages")
+    choose = choose_language(count=count)
+    if choose is False:
+        tranleted_list = []
+        for language in language_names:
+            power = CLI(languages=language, text=text)
+            transleted = power.translate_text()
+            print(transleted)
+            tranleted_list.append(transleted)
+        longest_text = option_shortes_longest()
+        if longest_text is True:
+            print(
+                f"Longest translented text: {min(tranleted_list)}, letters: {len(min(tranleted_list))},"
+                f" Shortest translented text: {max(tranleted_list)}, letters: {len(max(tranleted_list))}"
+            )
 
-text = enter_text_to_translation()
-language = Language()
-language_names = language.get_all_language_names()
-count = 1
-for x in language_names:
-    print(f"{count}. {x}")
-    count += 1
-print(f"{count}. Translate from all languages")
-choose = choose_language(count=count)
-if choose is False:
-    tranleted_list = []
-    for language in language_names:
-        power = CLI(languages=language, text=text)
+    else:
+        power = CLI(languages=language_names[choose - 1], text=text)
         transleted = power.translate_text()
         print(transleted)
-        tranleted_list.append(transleted)
-    longest_text = option_shortes_longest()
-    if longest_text is True:
-        print(
-            f"Longest translented text: {min(tranleted_list)}, letters: {len(min(tranleted_list))},"
-            f" Shortest translented text: {max(tranleted_list)}, letters: {len(max(tranleted_list))}"
-        )
-
-else:
-    power = CLI(languages=language_names[choose - 1], text=text)
-    transleted = power.translate_text()
-    print(transleted)
-    letters = option()
-    if letters is True:
-        print(f"text: {len(text)}, tranleted text: {len(transleted)}")
+        letters = option()
+        if letters is True:
+            print(f"text: {len(text)}, tranleted text: {len(transleted)}")
