@@ -32,3 +32,6 @@ class TestCLI(unittest.TestCase):
         cli = CLI("spanish", "")
         result = cli.translate_text()
         self.assertEqual(result, "")
+
+if __name__ == "__main__":
+    unittest.main()

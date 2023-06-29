@@ -4,7 +4,6 @@ from unittest.mock import patch
 
 
 class TestOption(unittest.TestCase):
-    # Tests that the function returns True when the user inputs 'y'
     def test_y(self):
         with unittest.mock.patch("builtins.input", return_value="y"):
             self.assertTrue(option())
@@ -24,3 +23,6 @@ class TestOption(unittest.TestCase):
             self.assertTrue(option())
         with unittest.mock.patch("builtins.input", side_effect=["", "n"]):
             self.assertFalse(option())
+
+if __name__ == "__main__":
+    unittest.main()
